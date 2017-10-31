@@ -171,22 +171,15 @@ class Pokemon{
     
         // prepare query
         $stmt = $this->conn->prepare($query);
-    
-        // sanitize
-        $this->name=htmlspecialchars(strip_tags($this->name));
-        $this->description=htmlspecialchars(strip_tags($this->description));
-        $this->type1_id=htmlspecialchars(strip_tags($this->type1_id));
-        $this->type2_id=htmlspecialchars(strip_tags($this->type2_id));
-        $this->evolution_id=htmlspecialchars(strip_tags($this->evolution_id));
            
         // if(!is_null($data->evolution_from))
    
         // bind values
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":description", $this->description);
-        $stmt->bindParam(":type1_id", $this->type1_id);
-        $stmt->bindParam(":type2_id", $this->type2_id);
-        $stmt->bindParam(":evolution_id", $this->evolution_id);
+        $stmt->bindParam("type1_id", $this->type1_id);
+        $stmt->bindParam("type2_id", $this->type2_id);
+        $stmt->bindParam("evolution_id", $this->evolution_id);
     
         // execute query
         if($stmt->execute()){
@@ -201,26 +194,22 @@ class Pokemon{
     
         // update query
         $query = "UPDATE
-                    " . $this->table_name . "
+                  " . $this->table_name . "
                 SET
-                    name = :name,
-                    description = :description,
-                    type1_id = :type1_id,
-                    type2_id = :type2_id,
-                    evolution_id = :evolution_id
+                    name=:name, description=:description, type1_id=:type1_id, type2_id=:type2_id, evolution_id=:evolution_id
                 WHERE
-                    id = :id";
+                    id=:id";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
         
         // sanitize
-        $this->name=htmlspecialchars(strip_tags($this->name));
+        /*$this->name=htmlspecialchars(strip_tags($this->name));
         $this->description=htmlspecialchars(strip_tags($this->description));
         $this->type1_id=htmlspecialchars(strip_tags($this->type1_id));
         $this->type2_id=htmlspecialchars(strip_tags($this->type2_id));
         $this->evolution_id=htmlspecialchars(strip_tags($this->evolution_id));
-        $this->id=htmlspecialchars(strip_tags($this->id));
+        $this->id=htmlspecialchars(strip_tags($this->id));*/
     
         // bind new values
         $stmt->bindParam(':name', $this->name);

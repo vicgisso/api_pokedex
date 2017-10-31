@@ -19,7 +19,7 @@ $pokemon = new Pokemon($db);
  
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
- 
+
 // set product property values
 $pokemon->name = $data->name;
 $pokemon->description = $data->description;

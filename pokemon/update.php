@@ -16,7 +16,7 @@ $db = $database->getConnection();
  
 // prepare pokemon object
 $pokemon = new Pokemon($db);
- 
+
 // get id of pokemon to be edited
 $data = json_decode(file_get_contents("php://input"));
  

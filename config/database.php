@@ -2,7 +2,7 @@
 class Database{
  
     // specify your own database credentials
-    private $host = "ec2-18-195-20-255.eu-central-1.compute.amazonaws.com";//"localhost";
+    private $host = "localhost";
     private $db_name = "api_db";
     private $username = "root";
     private $password = "2017definitiu";

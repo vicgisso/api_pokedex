@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
  
 // home page url
-$home_url="http://localhost/api/";
+$home_url="ec2-18-195-20-255.eu-central-1.compute.amazonaws.com/api/";//"http://localhost/api/";
  
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
